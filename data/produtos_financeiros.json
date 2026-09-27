@@ -5,7 +5,7 @@
     "risco": "baixo",
     "rentabilidade": "100% da Selic",
     "aporte_minimo": 30.00,
-    "indicado_para": "Reserva de emergência e iniciantes"
+    "contexto_educativo": "Costuma ser usado como exemplo de reserva de emergência por ter liquidez e baixo risco"
   },
   {
     "nome": "CDB Liquidez Diária",
@@ -13,7 +13,7 @@
     "risco": "baixo",
     "rentabilidade": "102% do CDI",
     "aporte_minimo": 100.00,
-    "indicado_para": "Quem busca segurança com rendimento diário"
+    "contexto_educativo": "Exemplo de renda fixa com liquidez diária, útil para entender rendimento previsível"
   },
   {
     "nome": "LCI/LCA",
@@ -21,7 +21,7 @@
     "risco": "baixo",
     "rentabilidade": "95% do CDI",
     "aporte_minimo": 1000.00,
-    "indicado_para": "Quem pode esperar 90 dias (isento de IR)"
+    "contexto_educativo": "Exemplo de investimento isento de IR, mas com prazo de carência — bom pra explicar liquidez"
   },
   {
     "nome": "Fundo Multimercado",
@@ -29,7 +29,7 @@
     "risco": "medio",
     "rentabilidade": "CDI + 2%",
     "aporte_minimo": 500.00,
-    "indicado_para": "Perfil moderado que busca diversificação"
+    "contexto_educativo": "Exemplo de diversificação entre classes de ativos, comum em carteiras de longo prazo"
   },
   {
     "nome": "Fundo de Ações",
@@ -37,6 +37,6 @@
     "risco": "alto",
     "rentabilidade": "Variável",
     "aporte_minimo": 100.00,
-    "indicado_para": "Perfil arrojado com foco no longo prazo"
+    "contexto_educativo": "Exemplo de investimento de maior risco, cuja volatilidade tende a se equilibrar apenas em horizontes longos (5+ anos)"
   }
 ]
