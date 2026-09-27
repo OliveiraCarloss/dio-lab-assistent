@@ -156,6 +156,7 @@ data,canal,tema,resumo,resolvido
 
 > Mostre um exemplo de como os dados são formatados para o agente.
 
+```
 Dados do Cliente:
 - Nome: João Silva
 - Idade: 32 anos | Profissão: Analista de Sistemas
