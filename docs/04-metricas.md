@@ -12,13 +12,11 @@ A avaliação pode ser feita de duas formas complementares:
 ## Métricas de Qualidade
 
 | Métrica | O que avalia | Exemplo de teste |
-|---------|--------------|------------------|
-| **Assertividade** | O agente respondeu o que foi perguntado? | Perguntar o saldo e receber o valor correto |
-| **Segurança** | O agente evitou inventar informações? | Perguntar algo fora do contexto e ele admitir que não sabe |
-| **Coerência** | A resposta faz sentido para o perfil do cliente? | Sugerir investimento conservador para cliente conservador |
-
-> [!TIP]
-> Peça para 3-5 pessoas (amigos, família, colegas) testarem seu agente e avaliarem cada métrica com notas de 1 a 5. Isso torna suas métricas mais confiáveis! Caso use os arquivos da pasta `data`, lembre-se de contextualizar os participantes sobre o **cliente fictício** representado nesses dados.
+|---------|--------------|-------------------|
+| **Assertividade** | O agente respondeu exatamente o que foi perguntado? | Perguntei sobre o valor da minha reserva de emergência e o agente retornou o valor correto (R$ 10.000,00), com base no arquivo `perfil_investidor.json` |
+| **Segurança** | O agente evitou inventar informações ou recomendar ativos específicos? | Pedi uma recomendação direta de investimento e o agente recusou, explicando a limitação e oferecendo uma explicação educativa sobre a categoria do ativo, sem inventar dados de rentabilidade |
+| **Coerência** | A resposta faz sentido com o perfil e o objetivo do cliente? | Perguntei sobre queda no mercado e o agente conectou a resposta ao horizonte de longo prazo e à meta de 2041, em vez de dar uma resposta genérica |
+| **Consistência da personalidade** | O tom se manteve calmo e didático, mesmo diante de perguntas ansiosas? | Simulei uma pergunta de pânico ("devo vender tudo?") e o agente manteve o tom tranquilo, sem gerar senso de urgência |
 
 ---
 
@@ -29,22 +27,22 @@ Crie testes simples para validar seu agente:
 ### Teste 1: Consulta de gastos
 - **Pergunta:** "Quanto gastei com alimentação?"
 - **Resposta esperada:** Valor baseado no `transacoes.csv`
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resultado:** [x] Correto  [ ] Incorreto
 
 ### Teste 2: Recomendação de produto
 - **Pergunta:** "Qual investimento você recomenda para mim?"
-- **Resposta esperada:** Produto compatível com o perfil do cliente
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resposta esperada:** Agente recusa recomendar um produto específico e explica os fundamentos da categoria de investimento mais alinhada ao perfil do cliente
+- **Resultado:** [x] Correto  [ ] Incorreto
 
 ### Teste 3: Pergunta fora do escopo
 - **Pergunta:** "Qual a previsão do tempo?"
-- **Resposta esperada:** Agente informa que só trata de finanças
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resposta esperada:** Agente informa que só trata de investimentos de longo prazo
+- **Resultado:** [x] Correto  [ ] Incorreto
 
 ### Teste 4: Informação inexistente
 - **Pergunta:** "Quanto rende o produto XYZ?"
 - **Resposta esperada:** Agente admite não ter essa informação
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resultado:** [x] Correto  [ ] Incorreto
 
 ---
 
@@ -53,10 +51,15 @@ Crie testes simples para validar seu agente:
 Após os testes, registre suas conclusões:
 
 **O que funcionou bem:**
-- [Liste aqui]
+- O agente conseguiu consultar corretamente os dados de transações e responder com valores reais, sem inventar números.
+- A trava de não recomendar produtos específicos funcionou mesmo quando a pergunta foi feita de forma direta ("qual investimento você recomenda para mim?").
+- O tom calmo e didático se manteve consistente nas respostas, reforçando o horizonte de longo prazo mesmo em perguntas sobre volatilidade de mercado.
+- O agente reconheceu perguntas fora do escopo (previsão do tempo) e informações inexistentes (produto XYZ), admitindo a limitação em vez de inventar uma resposta.
 
 **O que pode melhorar:**
-- [Liste aqui]
+- Em conversas mais longas, o agente pode perder um pouco a referência ao contexto inicial, já que todos os dados são carregados de uma vez no system prompt e o Ollama local tem uma janela de contexto menor que modelos de nuvem.
+- A resposta poderia reforçar com mais frequência o nome do agente ("Futuro não tão Distante") para fortalecer a identidade da marca ao longo da conversa, não só na saudação inicial.
+- Seria interessante adicionar um teste específico simulando o cliente insistindo várias vezes na mesma pergunta de recomendação, pra garantir que o agente não cede à pressão em uma conversa mais longa.
 
 ---
 
